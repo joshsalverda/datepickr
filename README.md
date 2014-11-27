@@ -69,7 +69,7 @@ To do this you will need to do some JavaScript magic, for example:
 
 ```
 <script>
-    datepickr.prototype.addClass = function (element, className) { element.className += ' ' + className; };
+    datepickr.init.prototype.addClass = function (element, className) { element.className += ' ' + className; };
     datepickr('#yourId');
 </script>
 ```
@@ -82,7 +82,7 @@ For example, if you wanted to use jQuery to select the elements for some reason:
 
 ```
 <script>
-    datepickr.prototype.querySelectorAll = jQuery;
+    datepickr.init.prototype.querySelectorAll = jQuery;
     datepickr('.some #crazy [selector]');
 </script>
 ```
@@ -106,7 +106,7 @@ Weekdays in french:
 
 ```
 <script>
-    datepickr.prototype.l10n.weekdays.longhand = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+    datepickr.init.prototype.l10n.weekdays.longhand = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
     datepickr('#yourId');
 </script>
 ```
@@ -115,7 +115,7 @@ Start the calendar on Monday instead of Sunday:
 
 ```
 <script>
-    datepickr.prototype.l10n.firstDayOfWeek = 1;
+    datepickr.init.prototype.l10n.firstDayOfWeek = 1;
     datepickr('#yourId');
 </script>
 ```
