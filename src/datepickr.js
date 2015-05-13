@@ -387,6 +387,7 @@ datepickr.init = function (element, instanceConfig) {
     close = function () {
         self.removeEventListener(document, 'click', documentClick, false);
         self.removeClass(wrapperElement, 'open');
+        wrapperElement.getElementsByTagName('input')[0].blur();
     };
 
     destroy = function () {
