@@ -372,7 +372,8 @@ datepickr.init = function (element, instanceConfig) {
 
         if (self.element.nodeName === 'INPUT') {
             openEvent = 'focus';
-            self.addEventListener(self.element, 'blur', close, false);
+            //The below code is commented out to make the datepicker stay opened while navigating months
+            //self.addEventListener(self.element, 'blur', close, false); 
         }
 
         self.addEventListener(self.element, openEvent, open, false);
