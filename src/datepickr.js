@@ -437,6 +437,9 @@ datepickr.init = function (element, instanceConfig) {
             self.currentMonthView = date.current.month.integer();
             self.currentDayView = date.current.day();
         }
+        
+        var currentTimestamp = new Date(self.currentYearView, self.currentMonthView, self.selectedDate.day).getTime();
+        self.element.value = formatDate(self.config.dateFormat, currentTimestamp);
 
         wrap();
         buildCalendar();
