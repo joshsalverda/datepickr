@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sample datepickrs</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="src/datepickr.css">
+       </head>
+
+    <body>
+        <h1>datepickr examples</h1>
+            <span id="calendar-icon">
+            <input id="datepickr1"></span>
+            <span id="calendar2-icon">
+            <input id="datepickr2"></span>
+        <script src="src/datepickr.js"></script>
+        <script>
+        var datapicker1 = null;
+            var datapicker2 = null;
+            function testdatemin (argument1) {
+                console.log('argument: ' + argument1);
+                if (datapicker2) {
+
+                    console.log('date: ' + argument1.substring(6,10)+ '/' +argument1.substring(3,5) + '/' + argument1.substring(0,2));
+                    datapicker2 = '';
+                    var minDate = new Date(argument1.substring(6,10),Number(argument1.substring(3,5) - 1), Number(argument1.substring(0,2))).getTime();
+                    datapicker2 = datepickr('#calendar2-icon', { dateFormat: 'd/m/Y', altInput: document.getElementById('datepickr2'), altInputCallback: testdatemin, minDate: minDate });
+                };
+            }
+            function testCurrentDate(){
+                return new Date(2016,11,10).getTime();
+            }
+            // Regular datepickr
+            datepickr('#datepickr');
+            // Overwrite the global datepickr prototype
+            // Won't affect previously created datepickrs, but will affect any new ones
+            datepickr.prototype.l10n.firstDayOfWeek = 1;
+            datepickr.prototype.l10n.months.shorthand = ['janv', 'févr', 'mars', 'avril', 'mai', 'juin', 'juil', 'août', 'sept', 'oct', 'nov', 'déc'];
+            datepickr.prototype.l10n.months.longhand = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+            datepickr.prototype.l10n.weekdays.shorthand = ['dim', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam'];
+            datepickr.prototype.l10n.weekdays.longhand = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+            var datapicker1 = datepickr('#calendar-icon', { dateFormat: 'd/m/Y', altInput: document.getElementById('datepickr1'), altInputCallback: testdatemin });
+            var datapicker2 = datepickr('#calendar2-icon', { dateFormat: 'd/m/Y', altInput: document.getElementById('datepickr2'), altInputCallback: testdatemin, minDate: new Date().getTime() });
+        </script>
+    </body>
+</html>

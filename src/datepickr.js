@@ -54,6 +54,7 @@ datepickr.init = function (element, instanceConfig) {
             dateFormat: 'F j, Y',
             altFormat: null,
             altInput: null,
+            altInputCallback: null,
             minDate: null,
             maxDate: null,
             shorthandCurrentMonth: false
@@ -345,6 +346,9 @@ datepickr.init = function (element, instanceConfig) {
                     } else {
                         // I don't know why someone would want to do this... but just in case?
                         self.config.altInput.value = formatDate(self.config.dateFormat, currentTimestamp);
+                    }
+                    if(self.config.altInputCallback){
+                        self.config.altInputCallback(self.config.altInput.value);
                     }
                 }
 
