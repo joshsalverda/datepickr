@@ -1,3 +1,7 @@
+## Note: This codebase isn't maintained anymore and probably requires a complete rewrite to be useful
+
+Keeping the code here for reference purposes, but don't use this for a new project, use something like https://flatpickr.js.org/ or https://duetds.github.io/date-picker/
+
 ## datepickr
 
 A simple JavaScript date picker
